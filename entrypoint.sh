@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-WORKPATH=$GITHUB_WORKSPACE/$INPUT_PATH
-cd $WORKPATH
+cd $INPUT_PATH
 
 makepkg --printsrcinfo >.SRCINFO
 git diff .SRCINFO
