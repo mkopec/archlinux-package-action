@@ -1,7 +1,7 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
-name: "Arch Linux's package action"
-description: "GitHub Action to run Arch Linux's package tools"
-author: 'hapakaien'
+name: "Arch Linux's printsrcinfo action"
+description: "GitHub Action to generate .SRCINFO for a given PKGBUILD"
+author: 'mkopec'
 branding:
   icon: 'package'
   color: 'blue'
@@ -11,49 +11,10 @@ inputs:
     description: 'Location for this action to run'
     default: ''
     required: false
-  pkgver:
-    description: 'Update pkgver on PKGBUILD'
-    default: ''
-    required: false
-  pkgrel:
-    description: 'Update pkgrel on PKGBUILD'
-    default: ''
-    required: false
-  updpkgsums:
-    description: 'Update checksums on PKGBUILD'
     default: 'false'
-    required: false
-  srcinfo:
-    description: 'Generate new .SRCINFO'
-    default: 'false'
-    required: false
-  flags:
-    description: 'Extra flags for makepkg'
-    default: '-cfs --noconfirm'
-    required: false
-  namcap:
-    description: 'Validate package with namcap'
-    default: 'true'
-    required: false
-  aur:
-    description: 'Resolve dependencies using paru'
-    default: 'false'
-    required: false
-  update_archlinux_keyring:
-    description: 'Update archlinux-keyring'
-    default: 'true'
-    required: false
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/hapakaien/archlinux-package-action:2'
+  image: 'docker://ghcr.io/mkopec/archlinux-package-action:2'
   args:
     - ${{ inputs.path }}
-    - ${{ inputs.pkgver }}
-    - ${{ inputs.pkgrel }}
-    - ${{ inputs.updpkgsums }}
-    - ${{ inputs.srcinfo }}
-    - ${{ inputs.flags }}
-    - ${{ inputs.namcap }}
-    - ${{ inputs.aur }}
-    - ${{ inputs.update_archlinux_keyring }}
