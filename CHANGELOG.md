@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.1] - 2024-01-31
+
+### Fixed
+
+- Wrong path to git directory when using non-default path
+
 ## [2.2.0] - 2022-08-05
 
 ### Added
