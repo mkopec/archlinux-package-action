@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-WORKPATH=$GITHUB_WORKSPACE/$INPUT_PATH
+WORKPATH=/workspace/github/$INPUT_PATH
 cd $WORKPATH
 
 export EUID=1000
