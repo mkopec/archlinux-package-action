@@ -1,6 +1,8 @@
 # Base image
 FROM docker.io/library/archlinux:base-devel
 
+USER root
+
 # Install dependencies
 RUN pacman -Syu --needed --noconfirm pacman-contrib namcap git
 
