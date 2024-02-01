@@ -4,7 +4,8 @@ set -e
 WORKPATH=/workspace/michal/$INPUT_PATH
 cd $WORKPATH
 
-export EUID=1000
+# HACK: Trick makepkg into running as root.
+export FAKEROOTKEY=1
 
-makepkg --printsrcinfo >.SRCINFO
+makepkg -F --printsrcinfo >.SRCINFO
 git diff .SRCINFO
